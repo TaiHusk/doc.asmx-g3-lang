@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AsmX G3 - Command Line</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+  <div class="stars" id="stars-container"></div>
+
+  <header id="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="logo-text">AsmX <span>G3</span></div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#code">Examples</a></li>
+            <li><a href="#commands">Commands</a></li>
+            <li><a href="#install">Installation</a></li>
+            <li><a href="#community">Community</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="https://github.com/AsmXFoundation/AsmX-G3" target="_blank" class="btn btn-outline">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="#install" class="btn btn-primary">
+            <i class="fas fa-download"></i> Install
+          </a>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="close-menu" id="close-menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#features">Features</a>
+    <a href="#code">Examples</a>
+    <a href="#commands">Commands</a>
+    <a href="#install">Installation</a>
+    <a href="#community">Community</a>
+    <a href="https://github.com/your-repo" target="_blank">GitHub</a>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1><span class="hero-gradient">Command Line</span> AsmX G3</h1>
+        <p>Full control over compilation and code generation through powerful terminal commands</p>
+
+        <div class="hero-buttons">
+          <a href="#commands" class="btn btn-primary">
+            <i class="fas fa-terminal"></i> Command List
+          </a>
+          <a href="#code" class="btn btn-outline">
+            <i class="fas fa-code"></i> Code Examples
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Powerful <span class="hero-gradient">Features</span></h2>
+        <p>AsmX G3 provides advanced command line options for full control over compilation</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Flexible Compilation</h3>
+          <p>Support for many options to customize the compilation process for your needs.</p>
+          <ul>
+            <li>Target architecture selection (`--march`)</li>
+            <li>JIT compilation for rapid prototyping</li>
+            <li>AOT compilation to native ELF files</li>
+            <li>Output file name customization (`-o`)</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Informational Flags</h3>
+          <p>Get all the information you need about the compiler and its environment.</p>
+          <ul>
+            <li>View version (`-v`, `--version`)</li>
+            <li>Target machine info (`--dumpmachine`)</li>
+            <li>llvm.js version data</li>
+            <li>Hide confidential info (`--hinfo`)</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Performance and Updates</h3>
+          <p>Tools for performance analysis and keeping the compiler up to date.</p>
+          <ul>
+            <li>Stage runtime profiling (`--profiletime`)</li>
+            <li>Built-in update command (`--update`)</li>
+            <li>Production builds (`-r, --release`)</li>
+            <li>Full x86_64 architecture support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="code">
+    <div class="container">
+      <div class="section-title">
+        <h2>Usage <span class="hero-gradient">Example</span></h2>
+        <p>Typical scenarios for working with the compiler via the command line.</p>
+      </div>
+
+      <div class="code-section">
+        <div class="code-header">
+          <div class="code-title">
+            <i class="fas fa-terminal"></i>
+            <span>Native Program Compilation</span>
+          </div>
+          <div class="code-actions">
+            <button class="code-btn" id="copy-code-btn">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><code class="language-bash"># Compile compile.asmx file to a native executable for x86_64
+asmx compile.asmx --release --march x86_64 -o my_program
+
+# Run the generated ELF file
+./my_program
+
+# JIT-execute a file for quick testing
+asmx factorial.asmx
+
+# Get compiler version info
+asmx --version
+
+# Update the compiler to the latest version
+asmx --update</code></pre>
+        </div>
+      </div>
+
+      <div class="code-section" style="margin-top: 30px;">
+        <div class="code-header">
+          <div class="code-title">
+            <i class="fas fa-code"></i>
+            <span>Native Program Example (compile.asmx)</span>
+          </div>
+          <div class="code-actions">
+            <button class="code-btn" id="copy-example-btn">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+        <div class="code-content">
+          <pre><code class="language-asmx">@include libc;
+
+@section rodata {
+  message: str("Hello World!\n")
+}
+
+@fn pub main {
+  @mov $1, %rax
+  @mov $1, %rdi
+  @mov &message, %rsi
+  @mov $21, %rdx
+  @syscall
+
+  @mov $60, %rax
+  @mov $0, %rdi
+  @syscall
+}</code></pre>
+        </div>
+        <div class="code-output">
+          <div class="output-line">$ asmx compile.asmx -r -m x86_64 -o hello</div>
+          <div class="output-line">$ ./hello</div>
+          <div class="output-line">Hello World!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="commands">
+    <div class="container">
+      <div class="section-title">
+        <h2>Command and Flag <span class="hero-gradient">Reference</span></h2>
+        <p>Full list of commands and options for the AsmX G3 compiler</p>
+      </div>
+
+      <div class="command-section">
+        <div class="command-grid">
+          <div class="command-group">
+            <h3><i class="fas fa-info-circle"></i> Informational Flags</h3>
+
+            <div class="command-item">
+              <div class="command-name">-h, --help</div>
+              <div class="command-desc">Show help information.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">-v, --version</div>
+              <div class="command-desc">Show full version information.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">--dumpversion</div>
+              <div class="command-desc">Show only the compiler version number.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">--dumpmachine</div>
+              <div class="command-desc">Show the compiler target architecture.</div>
+            </div>
+          </div>
+
+          <div class="command-group">
+            <h3><i class="fas fa-cogs"></i> Compilation Flags</h3>
+
+            <div class="command-item">
+              <div class="command-name">-r, --release</div>
+              <div class="command-desc">Compile to a native executable. Requires the `--march` flag.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">-o, --objname [name]</div>
+              <div class="command-desc">Set the output file name.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">-m, --march [architecture]</div>
+              <div class="command-desc">Specify the target architecture (e.g., `x86_64`).</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">--update</div>
+              <div class="command-desc">Update the AsmX compilation platform to the latest version.</div>
+            </div>
+          </div>
+
+          <div class="command-group">
+            <h3><i class="fas fa-sliders-h"></i> Additional Options</h3>
+
+            <div class="command-item">
+              <div class="command-name">--profiletime</div>
+              <div class="command-desc">Enable time profiler for compilation stages.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">--hinfo</div>
+              <div class="command-desc">Hide confidential information (e.g., file paths) in logs.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">@file, --file file</div>
+              <div class="command-desc">Specify a file for parameter processing.</div>
+            </div>
+          </div>
+
+          <div class="command-group">
+            <h3><i class="fab fa-dyalog"></i> LLVM Utilities</h3>
+
+            <div class="command-item">
+              <div class="command-name">--llvm@version</div>
+              <div class="command-desc">Show full llvm.js version information.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">--llvm@dumpversion</div>
+              <div class="command-desc">Show only the llvm.js version.</div>
+            </div>
+
+            <div class="command-item">
+              <div class="command-name">--llvm@repository</div>
+              <div class="command-desc">Show the llvm.js repository.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="install">
+    <div class="container">
+      <div class="section-title">
+        <h2>Installing <span class="hero-gradient">AsmX G3</span></h2>
+        <p>Get started with AsmX G3 in just a few steps</p>
+      </div>
+
+      <div class="install-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Install Node.js</h3>
+          <p>AsmX G3 requires Node.js version 16 or higher to work</p>
+          <div class="code-snippet">$ sudo apt install nodejs # For Debian/Ubuntu<br>$ brew install node # For macOS
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Install AsmX G3</h3>
+          <p>Install the compiler via npm (Node.js package manager)</p>
+          <div class="code-snippet">$ npm install -g asmx-g3</div>
+          <p>Or build from source:</p>
+          <div class="code-snippet">$ git clone https://github.com/AsmXFoundation/AsmX-G3.git<br>$ cd asmx-g3<br>$ npm install<br>$ npm link</div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Check the installation</h3>
+          <p>Make sure the compiler is installed correctly</p>
+          <div class="code-snippet">$ asmx --version<br>AsmX G3 Compiler v1.0.0<br>Target: x86_64-linux-gnu</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">AsmX G3</div>
+          <p>Advanced assembler compiler for x86_64 architecture with AT&T syntax support, JIT compilation and
+            ELF file generation.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Code Samples</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Community</h3>
+          <ul>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> GitHub</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Discord</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Forums</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Social Networks</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Meetups</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Legal information</h3>
+          <ul>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> MIT License</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Use</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Code of Conduct</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Report a Problem</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2023-
+          <script>document.write(new Date().getFullYear());</script> AsmX G3. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+
+</html>
